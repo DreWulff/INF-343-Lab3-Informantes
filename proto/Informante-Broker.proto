@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+message PetitionReq {
+    int32 Function = 1;
+    string Planet = 2;
+    string City = 3;
+}
+
+message IPFul {
+    string Direction = 1;
+}
+
+service Petition{
+    rpc Petition (PetitionReq) returns (IPFul);
+}

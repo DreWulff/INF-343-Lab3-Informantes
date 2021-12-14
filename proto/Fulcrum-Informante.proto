@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+
+message City {
+    string nombre_planeta = 1;
+    string nombre_ciudad = 2;
+    string nuevo_valor = 3;
+}
+message Clock {
+    repeated int32 reloj = 1;
+}
+
+service AddCity {
+    rpc AddCity (City) returns (Clock);
+}
+
+message DelCt {
+    string nombre_planeta = 1;
+    string nombre_ciudad = 2;
+}
+
+service DeleteCity {
+    rpc DeleteCity(DelCt) returns (Clock);
+}
+
+message NumClock {
+    int32 rebeldes = 1;
+    repeated int32 reloj = 2;
+}
+service GetNumberRebels {
+    rpc GetNumberRebels (DelCt) returns (NumClock);
+}
+
+
+service UpdateName {
+    rpc CambiarNombre (City) returns (Clock);
+}
+
+service UpdateNumber{
+    rpc CambiarValor (City) returns (Clock);
+}
