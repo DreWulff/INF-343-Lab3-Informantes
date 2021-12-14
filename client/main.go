@@ -114,7 +114,7 @@ func StartInfo() {
 		}
 
 		// Conexion
-		conn, err = grpc.Dial("localhost:5041", grpc.WithInsecure())
+		conn, err = grpc.Dial("10.6.43.50:5050", grpc.WithInsecure())
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -129,6 +129,7 @@ func StartInfo() {
 			log.Fatal(err)
 		}
 		conn.Close()
+		fmt.Printf("Direccion recibida: %v", &res.Direction)
 
 		// Se realiza peticion a direccion recibida
 		conn, err = grpc.Dial(res.Direction, grpc.WithInsecure())
